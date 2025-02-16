@@ -7,11 +7,13 @@ import Footer from "./components/home/Footer";
 
 function App() {
   return (
-    <div>
-      <div className="max-w-310 mx-auto">
+    <div className="bg-white p-3">
+      <div className="p-5 bg-pp min-h-screen rounded-2xl ">
         <Navbar />
       </div>
-      <Outlet />
+      <div className="p-5">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

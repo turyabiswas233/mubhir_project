@@ -5,8 +5,8 @@
 }
 
 nav{
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 2rem;
+  padding: 1.25rem;
   text-align: center;
+  background-color: #fff;
+  border-radius: 999px;
 }

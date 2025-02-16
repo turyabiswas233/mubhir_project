@@ -4,18 +4,19 @@ import { useNavigate } from "react-router-dom";
 function Navbar() {
   const nevigate = useNavigate();
   return (
-    <nav className="flex justify-start  w-auto max-w-310 items-center gap-10 bg-white text-xs md:text-sm xl:text-base mx-auto">
-      <div>
+    <nav className="flex items-center justify-between my-2 ring-2 ring-pp w-full gap-10 bg-white text-xs md:text-sm xl:text-base rounded-full">
+      <div className="flex items-center justify-center w-fit gap-2">
         <img
           className="min-w-12 object-cover"
           src={logo}
           alt="logo"
           width={48}
           height={48}
-        />
+        />{" "}
+        <p className="font-semibold text-2xl">Mubhir</p>
       </div>
 
-      <ul className="flex gap-10 items-center ">
+      <ul className="flex items-center justify-center gap-10 w-auto flex-auto ">
         <li>
           <a
             className="text-navLink_button hover:text-black transition-colors ease-out"
@@ -29,7 +30,7 @@ function Navbar() {
             className="text-navLink_button hover:text-black transition-colors ease-out"
             href="/"
           >
-            Who We Are
+            About us
           </a>
         </li>
         <li>
@@ -37,15 +38,15 @@ function Navbar() {
             className="text-navLink_button hover:text-black transition-colors ease-out"
             href="/pricing"
           >
-            Pricing
+            Subscriptions
           </a>
         </li>
         <li>
           <a
             className="text-navLink_button hover:text-black transition-colors ease-out"
-            href="/"
+            href="/sat-preparation"
           >
-            SAT Preparation
+            Latest exams
           </a>
         </li>
         <li>
@@ -53,7 +54,7 @@ function Navbar() {
             className="text-navLink_button hover:text-black transition-colors ease-out"
             href="/testimonials"
           >
-            Testimonials
+            Free refund
           </a>
         </li>
         <li>
@@ -64,17 +65,20 @@ function Navbar() {
             Contact Us
           </a>
         </li>
-        <li>
-          <a
-            className="text-navLink_button hover:text-black transition-colors ease-out"
-            href="/"
-          >
-            Blog
-          </a>
-        </li>
       </ul>
-      <div className="ml-auto">
-        <button className="btn_default" onClick={()=> nevigate("/account/signin")}>Sign In</button>
+      <div className="ml-auto flex items-center gap-3">
+        <button
+          className="ring-2 ring-pp rounded-full text-pp font-medium px-6 py-3"
+          onClick={() => nevigate("/account/signup")}
+        >
+          Registration
+        </button>
+        <button
+          className="ring-2 ring-pp rounded-full text-white bg-pp font-medium px-6 py-3"
+          onClick={() => nevigate("/account/login")}
+        >
+          Login
+        </button>
       </div>
     </nav>
   );
