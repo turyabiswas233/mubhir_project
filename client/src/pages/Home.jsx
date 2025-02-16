@@ -20,7 +20,7 @@ function HomePage() {
       </div>
       <Review />
       <WhyChosse />
-      <PricingPlans title1={"Affordable Plans for"} title2={"Every Students"} />
+      <PricingPlans title1={"Flexible Pricing for"} title2={"Every Learner"} extraTitle={"Choose the plan that fits your goals and budget."} />
       <FAQ />
       <BoostCard /> 
     </>

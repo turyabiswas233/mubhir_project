@@ -1,4 +1,16 @@
 import React, { useState } from "react";
+import { FaArrowCircleUp } from "react-icons/fa";
+import { FaCircleUp } from "react-icons/fa6";
+import {
+  MdArrowCircleUp,
+  MdArrowDownward,
+  MdArrowUpward,
+} from "react-icons/md";
+import {
+  PiCaretCircleDown,
+  PiCaretCircleUp,
+  PiCaretCircleUpFill,
+} from "react-icons/pi";
 
 const faqs = [
   {
@@ -27,10 +39,12 @@ const faqs = [
 
 function FAQ() {
   return (
-    <div className="p-28 mt-20 bg-heroBg">
+    <div className="p-28 mt-20 bg-lightgray rounded-xl">
       <div className="max-w-310 mx-auto">
-        <h1 className="text-center">Frequently Asked Questions</h1>
+        <h1 className="text-center">Your Questions Answered</h1>
       </div>
+
+      <p className="text-center text-black">Frequently asked questions.</p>
 
       <div className="max-w-310 mx-auto">
         {faqs.map((faq) => (
@@ -45,37 +59,25 @@ const FaqCard = ({ question, answer }) => {
   const handleToggle = () => setOpen(!open);
   return (
     <div
-      className={`group flex w-full justify-between items-center my-4 p-5 border border-[#C2BCF0] rounded-3xl ${
-        open ? "bg-white" : "bg-transparent"
-      } transition-colors `}
+      className={`group flex w-full justify-between items-center my-4 p-4 border border-[#fff] rounded-3xl bg-white transition-colors`}
     >
-      <div className="grid gap-3 items-center">
-        <h4>{question}</h4>
+      <div className="w-full gap-3 flex flex-col">
+        <h4 className="flex flex-row justify-between items-start">
+          <span className={open ? "text-pp" : "text-black"}>{question}</span>
+          <button
+            className="w-10 h-10 cursor-pointer mr-0"
+            onClick={handleToggle}
+          >
+            {open ? (
+              <PiCaretCircleUpFill color="671E5A" size={24} />
+            ) : (
+              <PiCaretCircleDown color="671E5A" size={24} />
+            )}
+          </button>
+        </h4>
 
         {open && <p className="font-normal text-base opacity-80">{answer}</p>}
       </div>
-      <button
-        className="w-5 h-5 min-w-8 min-h-8 cursor-pointer"
-        onClick={handleToggle}
-      >
-        {open ? (
-          <img
-            className="w-5 h-5"
-            src={"/icons/down.svg"}
-            alt="down"
-            width={14}
-            height={14}
-          />
-        ) : (
-          <img
-            className="w-5 h-5 group-hover:translate-x-1 transition-transform ease-out"
-            src={"/icons/right.svg"}
-            alt="right"
-            width={14}
-            height={14}
-          />
-        )}
-      </button>
     </div>
   );
 };

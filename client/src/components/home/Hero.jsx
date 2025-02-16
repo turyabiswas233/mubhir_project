@@ -1,8 +1,10 @@
 import React from "react";
+import Navbar from "../home/Navbar";
 import heroImage from "/images/hero.png";
 function Hero() {
   return (
-    <div className="bg-heroBg py-32">
+    <div className="bg-pp pb-32 p-3 rounded-2xl">
+      <Navbar />
       <div className="h-auto w-full max-w-310 flex justify-between gap-32 mx-auto px-10">
         <div className="my-auto flex flex-col gap-5 text-left max-w-lg">
           {/* rating */}
@@ -14,13 +16,17 @@ function Hero() {
               From more that 1,000 Saudi students
             </span>
           </p>
-          <h1 className="leading-14">Your SAT Success <br /> Starts Here!</h1>
+          <h1 className="leading-14">
+            Your SAT Success <br /> Starts Here!
+          </h1>
           <p>
             Tailored for Saudi students, Mubhir helps you master SAT 1 & SAT 2
             with expert-designed practice tests, real-time feedback, and
             progress tracking. Prepare smarter, not harder
           </p>
-          <button className="btn_default bg-tBlue w-fit">Start Free Trial Now</button>
+          <button className="btn_default bg-tBlue w-fit">
+            Start Free Trial Now
+          </button>
         </div>
         <div className="flex justify-end items-center flex-auto">
           <img

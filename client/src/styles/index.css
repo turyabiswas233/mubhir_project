@@ -24,7 +24,9 @@
   --color-border-brand-solid: #FFA570;
 
   /* new theme color */
-  --color-pp: #671E5A;
+
+  --color-pp: #671E5A;  /* primary */
+  --color-ps: #252150;  /* secondary */
 }
 
 
@@ -90,6 +92,7 @@ h4 {
 .btn_transparent {
   @apply bg-transparent text-tBlue ring-2 ring-tBlue font-bold px-6 py-3 rounded-full;
 }
+
 .btn_transparent_inv {
   @apply bg-transparent text-white ring-2 ring-white font-bold px-6 py-3 rounded-full;
 }

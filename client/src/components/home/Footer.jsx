@@ -7,7 +7,7 @@ import instagram from "/icons/social/instagram.svg";
 
 function Footer() {
   return (
-    <div className="px-20 pt-20 bg-supergray text-white ">
+    <div className="px-20 pt-20 bg-supergray text-white rounded-xl ">
       <div className="max-w-310 w-full mx-auto flex gap-10 items-start justify-evenly">
         <div className="grid grid-cols-1 gap-10 max-w-52">
           <div className="grid gap-5">

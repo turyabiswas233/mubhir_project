@@ -7,11 +7,8 @@ import Footer from "./components/home/Footer";
 
 function App() {
   return (
-    <div className="bg-white p-3">
-      <div className="p-5 bg-pp min-h-screen rounded-2xl ">
-        <Navbar />
-      </div>
-      <div className="p-5">
+    <div className="bg-white p-2">
+      <div className="p-3">
         <Outlet />
       </div>
       <Footer />
