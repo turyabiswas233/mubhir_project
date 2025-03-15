@@ -1,10 +1,11 @@
-import React from "react";
-import Navbar from "../home/Navbar";
+import React from "react"; 
 import heroImage from "/images/hero.png";
+import Navbar from "./Navbar";
 function Hero() {
   return (
-    <div className="bg-pp pb-32 p-3 rounded-2xl">
+    <div className="bg-pp p-3 rounded-2xl">
       <Navbar />
+
       <div className="h-auto w-full max-w-310 flex justify-between gap-32 mx-auto px-10">
         <div className="my-auto flex flex-col gap-5 text-left max-w-lg">
           {/* rating */}
@@ -16,7 +17,7 @@ function Hero() {
               From more that 1,000 Saudi students
             </span>
           </p>
-          <h1 className="leading-14">
+          <h1 className="leading-14 ">
             Your SAT Success <br /> Starts Here!
           </h1>
           <p>

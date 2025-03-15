@@ -2,6 +2,7 @@ import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { MdCheck } from "react-icons/md";
 const PricingPlans = ({ title1, title2, extraTitle = "" }) => {
+  const options = ["School", "College", "Graduate", "SAT 2"];
   return (
     <section className="py-16 px-4 md:px-6 bg-ps rounded-xl">
       <div className="mx-auto">
@@ -13,6 +14,18 @@ const PricingPlans = ({ title1, title2, extraTitle = "" }) => {
         {extraTitle && (
           <p className="text-lg text-center mb-8 text-white">{extraTitle}</p>
         )}
+
+        <div className="options my-12">
+          <ul className="grid grid-cols-4 text-center gap-10 w-fit mx-auto">
+            {options.map((opt) => {
+              return (
+                <li key={opt} className="text-white rounded-full px-3 py-2 border border-[#363075] hover:bg-[#7230D8] focus-within:bg-[#7230D8] transition-colors cursor-pointer">
+                  {opt}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
 
         <div className="flex flex-wrap flex-col lg:flex-row justify-center gap-6 mx-auto w-fit">
           <PriceCard
@@ -52,17 +65,6 @@ const PricingPlans = ({ title1, title2, extraTitle = "" }) => {
               "24/7 support to answer your questions.",
             ]}
             buttonTitle={"Start 6 Months Plan"}
-          />
-          <PriceCard
-            title="Yearly Plan"
-            subTitle="Perfect for long-term commitment"
-            price="399"
-            tipsList={[
-              "Access SAT 1 and SAT 2 practice questions.",
-              "Weekly progress reports to track improvement.",
-              "24/7 support to answer your questions.",
-            ]}
-            buttonTitle={"Start Yearly Plan"}
           />
         </div>
       </div>

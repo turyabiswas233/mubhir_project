@@ -1,38 +1,34 @@
 import React, { useState } from "react";
-import { FaArrowCircleUp } from "react-icons/fa";
-import { FaCircleUp } from "react-icons/fa6";
 import {
-  MdArrowCircleUp,
-  MdArrowDownward,
-  MdArrowUpward,
-} from "react-icons/md";
-import {
-  PiCaretCircleDown,
-  PiCaretCircleUp,
-  PiCaretCircleUpFill,
-} from "react-icons/pi";
+  FaArrowRight,
+  FaChevronCircleDown,
+  FaChevronCircleUp,
+} from "react-icons/fa";
 
 const faqs = [
   {
-    question: "What is Mubhir, and how does it help with SAT preparation?",
+    question: "How does Mubhir's AI personalize my learning experience?",
     answer:
-      "Mubhir is an online platform tailored for Saudi students to prepare for SAT 1 and SAT 2 exams. We provide realistic practice tests, detailed feedback, progress tracking, and subject-specific prep to help you succeed",
+      "Our AI analyzes your performance, identifies strengths and weaknesses, and tailors a study plan to maximize your score improvement.",
   },
   {
-    question:
-      "What is the difference between SAT 1 and SAT 2 preparation on Mubhir?",
+    question: "How many practice tests are included in the program?",
     answer: "Some texts",
   },
   {
-    question: "Can I customize my tests?",
+    question: "Can I use Mubhir on my phone or tablet?",
     answer: "Some texts",
   },
   {
-    question: "What's included in the free trial?",
+    question: "Is there a free trial available?",
     answer: "Some texts",
   },
   {
-    question: "Are the practice tests similar to the real SAT exam?",
+    question: "What if I'm not satisfied with the program?",
+    answer: "Some texts",
+  },
+  {
+    question: "Will I get support during my preparation?",
     answer: "Some texts",
   },
 ];
@@ -51,6 +47,21 @@ function FAQ() {
           <FaqCard key={faq.id} {...faq} />
         ))}
       </div>
+      <div className="w-fit mx-auto space-y-2 mt-15">
+        <p className="text-center">Still have questions?</p>
+
+        {/* use useNavigate() hook to make it change route */}
+        <button className="rounded-full p-1 text-white bg-pp flex items-center">
+          <span className="px-5 text-lg font-medium">Contact Us</span>
+          <span>
+            <FaArrowRight
+              enableBackground={true}
+              className="text-pp p-2.5 bg-white rounded-full"
+              size={40}
+            />
+          </span>
+        </button>
+      </div>
     </div>
   );
 }
@@ -64,15 +75,12 @@ const FaqCard = ({ question, answer }) => {
       <div className="w-full gap-3 flex flex-col">
         <h4 className="flex flex-row justify-between items-start">
           <span className={open ? "text-pp" : "text-black"}>{question}</span>
-          <button
-            className="w-10 h-10 cursor-pointer mr-0"
-            onClick={handleToggle}
-          >
-            {open ? (
-              <PiCaretCircleUpFill color="671E5A" size={24} />
-            ) : (
-              <PiCaretCircleDown color="671E5A" size={24} />
-            )}
+          <button className="cursor-pointer outline-0 focus-within:outline-none" onClick={handleToggle}>
+            <FaChevronCircleUp
+              enableBackground={true}
+              className={`rounded-full ${open ? 'rotate-180 bg-white text-pp': 'rotate-0 bg-pp text-white'} transition-all`}
+              size={32}
+            />
           </button>
         </h4>
 

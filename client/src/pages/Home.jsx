@@ -1,17 +1,16 @@
- import Hero from "../components/home/Hero";
+import Hero from "../components/home/Hero";
 import Success from "../components/home/Success";
 import Test from "../components/home/Test";
 import FullTest from "../components/home/FullTest";
 import Review from "../components/home/Review";
- import WhyChosse from "../components/home/WhyChosse";
+import WhyChosse from "../components/home/WhyChosse";
 import BoostCard from "../components/home/BoostCard";
 import FAQ from "../components/home/FAQ";
-import PricingPlans from "../components/partial/Pricing";
+import PricingPlans from "../components/partial/Pricing"; 
 
 function HomePage() {
   return (
     <>
-      
       <Hero />
       <div className="max-w-310 w-full mx-auto px-5">
         <Success />
@@ -20,9 +19,13 @@ function HomePage() {
       </div>
       <Review />
       <WhyChosse />
-      <PricingPlans title1={"Flexible Pricing for"} title2={"Every Learner"} extraTitle={"Choose the plan that fits your goals and budget."} />
+      <PricingPlans
+        title1={"Flexible Pricing for"}
+        title2={"Every Learner"}
+        extraTitle={"Choose the plan that fits your goals and budget."}
+      />
       <FAQ />
-      <BoostCard /> 
+      <BoostCard />
     </>
   );
 }

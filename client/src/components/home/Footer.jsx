@@ -1,98 +1,161 @@
 import React from "react";
-import logo from "/icons/logo_light.svg";
-import fb from "/icons/social/facebook.svg";
-import twitter from "/icons/social/twitter.svg";
-import linkedin from "/icons/social/linkedin.svg";
-import instagram from "/icons/social/instagram.svg";
+import logo from "/icons/logo.svg";
+
+// social icons
+import { FiPhone } from "react-icons/fi";
+import { HiOutlineLocationMarker } from "react-icons/hi";
+import { FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaXTwitter } from "react-icons/fa6";
+import {
+  MdOutlineMail,
+  MdOutlineMyLocation,
+  MdOutlinePhone,
+} from "react-icons/md";
 
 function Footer() {
   return (
-    <div className="px-20 pt-20 bg-supergray text-white rounded-xl ">
-      <div className="max-w-310 w-full mx-auto flex gap-10 items-start justify-evenly">
-        <div className="grid grid-cols-1 gap-10 max-w-52">
+    <div className="px-20 pt-20 bg-lightgray text-[#344054] rounded-xl ">
+      <div className="max-w-310 w-full mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 gap-10">
           <div className="grid gap-5">
-            <img src={logo} />
-            <p className="text-[#E2E2E2] text-[20px] font-normal">
+            <span className="flex items-center justify-center w-fit gap-2 text-2xl font-semibold">
+              <img className="bg-white rounded-full" src={logo} /> Mubhir
+            </span>
+            <p className="text-base font-medium">
               A platform offering mock tests and resources for the General
               Aptitude Test.
             </p>
           </div>
-
-          <div className="flex gap-3">
-            <a href="#">
-              <img src={fb} width={20} height={20} />
-            </a>
-            <a href="#">
-              <img src={twitter} width={20} height={20} />
-            </a>
-            <a href="#">
-              <img src={linkedin} width={20} height={20} />
-            </a>
-            <a href="#">
-              <img src={instagram} width={20} height={20} />
-            </a>
-          </div>
-        </div>
-
-        <div className="grid gap-3">
-          <p className="font-semibold text-xl">Quick Links</p>
-
           <div>
-            <ul className="grid gap-3 font-light opacity-80">
-              <li>
-                <a href="#">Home</a>
-              </li>
-              <li>
-                <a href="#">Who We Are</a>
-              </li>
-              <li>
-                <a href="/contact">Contact Us</a>
-              </li>
-              <li>
-                <a href="#">Blog</a>
-              </li>
-              <li>
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#">Terms & Conditions</a>
-              </li>
-            </ul>
+            <div className="grid grid-cols-1 gap-5">
+              <p className="font-semibold text-pp">
+                Subscribe for SAT tips and updates
+              </p>
+              <section className="w-fit bg-white flex justify-between items-center p-1 rounded-full border border-gray-300">
+                <input
+                  className="px-5 outline-none border-none focus-within:outline-0 focus:border-none"
+                  placeholder="Enter your mail"
+                  type="email"
+                  required
+                />
+                <span>
+                  <button className="bg-pp text-white rounded-full px-4 py-2">
+                    Subscribe
+                  </button>
+                </span>
+              </section>
+            </div>
           </div>
         </div>
 
         <div>
-          <p className="font-semibold text-xl">Contact Info</p>
+          <p className="font-semibold text-lg text-pp">
+            Quick Links
+          </p>
 
-          <div className="grid gap-2 font-normal opacity-80">
-            <p className="font-semibold">
-              Email: <a className="font-light" href="mailto:support@mubhir.sa">support@mubhir.sa</a>{" "}
-            </p>
-            <p className="font-semibold">
-              Address: <span className="font-light">Riyadh, Saudi Arabia</span>
-            </p>
-          </div>
+          <ul className="space-y-2 font-medium text-[#344054] ">
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">Who We Are</a>
+            </li>
+            <li>
+              <a href="/contact">Contact Us</a>
+            </li>
+            <li>
+              <a href="#">Blog</a>
+            </li>
+            <li>
+              <a href="#">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#">Terms & Conditions</a>
+            </li>
+          </ul>
         </div>
 
         <div>
-          <p className="font-semibold text-xl">Newsletter Signup:</p>
+          <p className="font-semibold text-lg text-pp">Contact Us</p>
 
-          <div className="grid grid-cols-1 gap-5">
-            <p className="font-light opacity-80">Subscribe for SAT tips and platform updates.</p>
-            <input
-              className="outline-0 focus-within:outline-0 rounded-lg bg-transparent text-white p-3 focus:border-tBlue border-2 border-white transition-colors ease-linear duration-100"
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Enter your mail..."
-            />
-            <button className="btn_default" type="button">Join Now</button>
+          <div className="grid gap-2 font-normal space-y-1 my-5">
+            <p className="font-semibold flex items-center gap-3">
+              <span>
+                <FiPhone className="text-pp" size={20} />
+              </span>
+              <a className="font-light" href="mailto:support@mubhir.sa">
+                +1 234 5678 90
+              </a>
+            </p>
+            <p className="font-semibold flex items-center gap-3">
+              <span>
+                <MdOutlineMail className="text-pp" size={20} />
+              </span>
+              <a className="font-light" href="mailto:support@mubhir.sa">
+                support@mubhir.sa
+              </a>
+            </p>
+            <p className="font-semibold flex items-center gap-3">
+              <span>
+                <HiOutlineLocationMarker className="text-pp" size={20} />
+              </span>
+              <span className="font-light">Riyadh, Saudi Arabia.</span>
+            </p>
           </div>
+
+          <div className="flex gap-2 items-center my-14">
+            <button>
+              <FaInstagram
+                className="text-pp p-2 bg-white hover:bg-pp hover:text-white transition-colors cursor-pointer rounded-full"
+                enableBackground={true}
+                size={32}
+              />
+            </button>
+            <button>
+              <FaTiktok
+                className="text-pp p-2 bg-white hover:bg-pp hover:text-white transition-colors cursor-pointer rounded-full"
+                enableBackground={true}
+                size={32}
+              />
+            </button>
+            <button>
+              <FaYoutube
+                className="text-pp p-2 bg-white hover:bg-pp hover:text-white transition-colors cursor-pointer rounded-full"
+                enableBackground={true}
+                size={32}
+              />
+            </button>
+            <button>
+              <FaXTwitter
+                className="text-pp p-2 bg-white hover:bg-pp hover:text-white transition-colors cursor-pointer rounded-full"
+                enableBackground={true}
+                size={32}
+              />
+            </button>
+            <button>
+              <FaFacebookF
+                className="text-pp p-2 bg-white hover:bg-pp hover:text-white transition-colors cursor-pointer rounded-full"
+                enableBackground={true}
+                size={32}
+              />
+            </button>
+          </div>
+        </div>
+        {/* bottom */}
+        <div className="flex lg:col-span-3 items-center justify-between border-t border-t-white h-fit mt-5 text-sm">
+          <p className="text-left font-normal py-3.5">
+            All rights reserved to (Mubarak) Company for the year 2025
+          </p>
+          <ul className="grid grid-cols-2">
+            <li>
+              <a href="/privacy-policy">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="/terms-conditions">Terms & Conditions</a>
+            </li>
+          </ul>
         </div>
       </div>
-      <p className="text-center font-normal text-lg text-[#E2E2E2]/90 pt-10 pb-20 border-t border-lightgray/10 mt-10">
-        All rights reserved to (Mubarak) Company for the year 2025
-      </p>
     </div>
   );
 }

@@ -10,6 +10,8 @@ import PricingPage from "./pages/PricingPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import Testimonials from "./pages/Testimonials.jsx";
 import SigninPage from "./pages/SigninPage.jsx";
+import SignupPage from "./pages/SignupPage.jsx";
+import AboutPage from "./pages/AboutPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +35,11 @@ const router = createBrowserRouter([
         index: true,
         element: <HomePage />,
       },
-     
+
+      {
+        path: "/about",
+        element: <AboutPage />,
+      },
       {
         path: "/pricing",
         element: <PricingPage />,
@@ -46,15 +52,18 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <ContactPage />,
       },
-    ],
-  },
-  {
-    path: "/account",
-    children: [
       {
-        index: true,
-        path: "signin",
-        element: <SigninPage />,
+        path: "/account",
+        children: [
+          {
+            path: "login",
+            element: <SigninPage />,
+          },
+          {
+            path: "signup",
+            element: <SignupPage />,
+          },
+        ],
       },
     ],
   },
