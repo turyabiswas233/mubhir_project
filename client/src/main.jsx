@@ -12,6 +12,7 @@ import Testimonials from "./pages/Testimonials.jsx";
 import SigninPage from "./pages/SigninPage.jsx";
 import SignupPage from "./pages/SignupPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
+import LandingPage from "./pages/LandingPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,6 @@ const router = createBrowserRouter([
         index: true,
         element: <HomePage />,
       },
-
       {
         path: "/about",
         element: <AboutPage />,
@@ -47,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "/testimonials",
         element: <Testimonials />,
+      },
+      {
+        path: "/landing",
+        element: <LandingPage />,
       },
       {
         path: "/contact",
