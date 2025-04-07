@@ -21,7 +21,7 @@ const ScatterLabel = ({ label, color, rotate, className }) => {
 function LandingPage() {
   return (
     // tempbg-gradient-to-br from-[#1e2841] to-[#434F7F]
-    <div className="bg-[url(/images/landing_earth.png)] bg-cover h-auto w-full px-24 py-20 rounded-2xl overflow-x-hidden relative mb-10 text-white min-h-screen">
+    <div className="bg-[url(/images/landing_earth.png)] bg-cover h-auto w-full px-14 pt-10 lg:px-24 lg:pt-20 rounded-2xl overflow-x-hidden relative mb-10 text-white min-h-fit">
       <div className="flex items-center w-fit justify-center gap-2 mb-20">
         <img
           src={logo}
@@ -31,41 +31,48 @@ function LandingPage() {
         />
         <span className="text-xl">Mubhir</span>
       </div>
-      <div>
+      <div className="grid grid-cols-1 xl:grid-cols-2">
         <div>
           <header>
             <h2>
-              <span className="text-7xl inline-flex items-center gap-3">
+              <span className="text-4xl xl:text-7xl inline-flex items-center gap-3">
                 Your AI
                 <span>
-                  <img src={landingArt} alt={"art"} width={80} height={80} />
+                  <img
+                    className="w-[40px] xl:w-[80px]"
+                    src={landingArt}
+                    alt={"art"}
+                    width={"auto"}
+                    height={"auto"}
+                  />
                 </span>{" "}
                 SAT
               </span>
             </h2>
             <h1>
-              <i className="font-extrabold text-8xl">Coming Soon</i>
+              <i className="font-extrabold text-6xl lg:text-8xl">Coming Soon</i>
             </h1>
 
             <p>
-              Can't wait to help you elevate your scores with intelligent
+              Can't wait to help you elevate your scores with intelligent <br />{" "}
               practice, personalized feedback, and strategic prep techniques!
             </p>
           </header>
+          <br />
 
           <div className="grid">
-            <h4>Register now to get early access</h4>
+            <h4 className="my-5">Register now to get early access</h4>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
                 alert("call submit api");
               }}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-4 lg:w-1/2">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 w-auto lg:w-fit">
                 <section className="grid gap-2">
                   <label htmlFor="firstName">First Name</label>
                   <input
-                    className="p-3 outline-none border border-slate-400/50 bg-gray-600/30 rounded-md focus:border-slate-400 focus-within:border-2 transition-all"
+                    className="p-3 outline-none border border-white/20 bg-white/4 rounded-md focus:border-slate-400 focus-within:border-2 transition-all"
                     required
                     type="text"
                     name="firstName"
@@ -76,7 +83,7 @@ function LandingPage() {
                 <section className="grid gap-2">
                   <label htmlFor="fullName">Full Name</label>
                   <input
-                    className="p-3 outline-none border border-slate-400/50 bg-gray-600/30 rounded-md focus:border-slate-400 focus-within:border-2 transition-all"
+                    className="p-3 outline-none border border-white/20 bg-white/4 rounded-md focus:border-slate-400 focus-within:border-2 transition-all"
                     required
                     type="text"
                     name="fullName"
@@ -87,7 +94,7 @@ function LandingPage() {
                 <section className="grid gap-2">
                   <label htmlFor="email">Email</label>
                   <input
-                    className="p-3 outline-none border border-slate-400/50 bg-gray-600/30 rounded-md focus:border-slate-400 focus-within:border-2 transition-all"
+                    className="p-3 outline-none border border-white/20 bg-white/4 rounded-md focus:border-slate-400 focus-within:border-2 transition-all"
                     required
                     type="email"
                     name="email"
@@ -98,7 +105,7 @@ function LandingPage() {
                 <section className="grid gap-2">
                   <label htmlFor="Phone">Phone</label>
                   <input
-                    className="p-3 outline-none border border-slate-400/50 bg-gray-600/30 rounded-md focus:border-slate-400 focus-within:border-2 transition-all"
+                    className="p-3 outline-none border border-white/20 bg-white/4 rounded-md focus:border-slate-400 focus-within:border-2 transition-all"
                     required
                     type="tel"
                     name="phone"
@@ -120,8 +127,8 @@ function LandingPage() {
               </button>
             </form>
           </div>
-          <div className="absolute left-30 bottom-14">
-            <div className="flex gap-0">
+          <div className="flex items-start pb-20">
+            <div className="items-center flex">
               <MdAccountCircle
                 className="border broder-pp rounded-full bg-white text-pp "
                 size={40}
@@ -136,13 +143,16 @@ function LandingPage() {
               />
             </div>
 
-            <p>40,000+ Join us & access our benifits</p>
+            <span>
+              40,000+ Join us & access <br /> our benifits
+            </span>
           </div>
         </div>
 
         <div>
           <img
-            className="w-auto absolute bottom-0 right-10 aspect-auto"
+            // className="w-auto absolute bottom-0 left-1/2 aspect-auto z-0"
+            className="absolute w-1/2 right-0 bottom-0 max-w-[1000px]"
             src={saudiStd}
             height={"100%"}
           />
@@ -161,7 +171,7 @@ function LandingPage() {
           label={"Early"}
         />
         <ScatterLabel
-          className={"right-1/2 bottom-20"}
+          className={"right-1/2 bottom-20 opacity-0 md:opacity-100"}
           color={"bg-[#0E957F]"}
           rotate={"rotate-[24deg]"}
           label={"Beta"}
