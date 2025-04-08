@@ -3,5 +3,9 @@ import react from "@vitejs/plugin-react-swc";
 import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig({
+  server: {
+    host: "10.10.10.7",
+    port: "8000",
+  },
   plugins: [react(), tailwindcss()],
 });

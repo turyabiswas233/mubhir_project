@@ -1,4 +1,4 @@
-import React from "react"; 
+import React from "react";
 import heroImage from "/images/hero.png";
 import Navbar from "./Navbar";
 function Hero() {
@@ -6,8 +6,8 @@ function Hero() {
     <div className="bg-pp p-3 rounded-2xl">
       <Navbar />
 
-      <div className="h-auto w-full max-w-310 flex justify-between gap-32 mx-auto px-10">
-        <div className="my-auto flex flex-col gap-5 text-left max-w-lg">
+      <div className="h-auto w-full max-w-310 grid min-lg:grid-cols-2 justify-between gap-28 mx-auto p-5 min-lg:p-10 ">
+        <div className="my-auto flex flex-col gap-5 text-left max-w-lg text-white">
           {/* rating */}
           <p className="w-fit ring-1 ring-lightgray font-normal rounded-full p-1 pr-3 bg-white flex items-center">
             <span className="w-fit flex items-center justify-center rounded-full ring-1 ring-lightgray p-2 font-medium text-black mr-2 bg-white text-base">
@@ -29,12 +29,12 @@ function Hero() {
             Start Free Trial Now
           </button>
         </div>
-        <div className="flex justify-end items-center flex-auto">
+        <div>
           <img
-            className="rounded-xl h-full w-full max-w-md object-cover"
+            className="rounded-xl h-auto w-auto max-lg:mx-auto object-cover aspect-auto"
             src={heroImage}
-            width={450}
-            height={(450 * 9) / 16}
+            width={350}
+            height={(350 * 9) / 16}
           />
         </div>
       </div>

@@ -73,7 +73,7 @@ function Navbar() {
         </li>
       </ul>
 
-      <div className="ml-auto flex items-center gap-3">
+      <div className="ml-auto flex items-center gap-3 max-lg:hidden">
         <button
           className="ring-2 ring-pp rounded-full text-pp font-medium px-6 py-3"
           onClick={() => navigate("/account/signup")}
@@ -118,7 +118,19 @@ function Navbar() {
                 <path d="M14.348 14.849a1 1 0 01-1.414 0L10 11.914l-2.934 2.935a1 1 0 01-1.414-1.414l2.935-2.934-2.935-2.934a1 1 0 011.414-1.414L10 9.086l2.934-2.935a1 1 0 011.414 1.414l-2.935 2.934 2.935 2.934a1 1 0 010 1.414z" />
               </svg>
             </button>
-            <ul className="flex flex-col items-start gap-4 p-4 mt-20 text-base">
+            <ul className="flex-col items-start gap-4 p-4 mt-20 text-base grid space-y-2">
+              <li>
+                <div className="flex items-center justify-center w-fit gap-2">
+                  <img
+                    className="min-w-10 object-cover"
+                    src={logo}
+                    alt="logo"
+                    width={36}
+                    height={36}
+                  />{" "}
+                  <p className="font-semibold text-xl">Mubhir</p>
+                </div>
+              </li>
               <li>
                 <a
                   className="text-navLink_button hover:text-pp transition-colors ease-out"
@@ -166,6 +178,22 @@ function Navbar() {
                 >
                   Contact Us
                 </a>
+              </li>
+              <li>
+                <div className="ml-auto grid items-center gap-3">
+                  <button
+                    className="w-full ring-2 ring-pp rounded-full text-pp font-medium px-6 py-3"
+                    onClick={() => navigate("/account/signup")}
+                  >
+                    Registration
+                  </button>
+                  <button
+                    className="w-full ring-2 ring-pp rounded-full text-white bg-pp font-medium px-6 py-3"
+                    onClick={() => navigate("/account/login")}
+                  >
+                    Login
+                  </button>
+                </div>
               </li>
             </ul>
           </div>

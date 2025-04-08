@@ -54,7 +54,7 @@ function LandingPage() {
       </div>
       <div className="grid grid-cols-1 min-lg:grid-cols-2">
         <div>
-          <div className="max-lg:px-14 max-lg:pt-10 max-lg:bg-[url(/images/landing_earth.png)] bg-cover bg-right">
+          <div className="max-lg:px-4 max-lg:pt-8 max-lg:bg-[url(/images/landing_earth.png)] bg-cover bg-right">
             <div className="mx-auto min-lg:hidden flex items-center w-fit justify-center gap-2 mb-10">
               <img
                 src={logo}
@@ -65,7 +65,7 @@ function LandingPage() {
               <span className="text-xl">Mubhir</span>
             </div>
             <header>
-              <h2>
+              <p>
                 <span className="text-4xl min-2xl:text-7xl inline-flex items-center gap-3">
                   Your AI
                   <span>
@@ -79,16 +79,15 @@ function LandingPage() {
                   </span>{" "}
                   SAT
                 </span>
-              </h2>
-              <h1>
-                <i className="font-extrabold text-6xl min-lg:text-7xl min-2xl:text-8xl">
+              </p>
+              <p>
+                <i className="font-extrabold text-5xl min-lg:text-7xl min-2xl:text-8xl">
                   Coming Soon
                 </i>
-              </h1>
+              </p>
 
-              <p>
-                Can't wait to help you elevate your scores with intelligent{" "}
-                <br /> practice, personalized feedback, and strategic prep
+              <p className="my-4 text-base">
+                Can't wait to help you elevate your scores with intelligent practice, personalized feedback, and strategic prep
                 techniques!
               </p>
 
@@ -102,19 +101,19 @@ function LandingPage() {
                 />
                 {/* socials */}
                 <ScatterLabel
-                  className={"left-10 bottom-14 w-fit h-fit"}
+                  className={"left-2 bottom-14 w-fit h-fit"}
                   color={"bg-[#4F46F4]"}
                   rotate={"-rotate-[24deg]"}
                   label={"Coming"}
                 />
                 <ScatterLabel
-                  className={"right-10 bottom-1/3 w-fit h-fit"}
+                  className={"right-2 bottom-1/3 w-fit h-fit"}
                   color={"bg-[#7E08EE]"}
                   rotate={"rotate-[24deg]"}
                   label={"Early"}
                 />
                 <ScatterLabel
-                  className={"left-10 top-20 w-fit h-fit"}
+                  className={"left-2 top-20 w-fit h-fit"}
                   color={"bg-[#0E957F]"}
                   rotate={"rotate-[24deg]"}
                   label={"Beta"}
