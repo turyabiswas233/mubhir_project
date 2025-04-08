@@ -14,7 +14,7 @@ import {
 
 function Footer() {
   return (
-    <div className="px-20 pt-20 bg-lightgray text-[#344054] rounded-xl ">
+    <div className="p-5 min-lg:px-20 min-lg:pt-20 bg-lightgray text-[#344054] rounded-xl ">
       <div className="max-w-310 w-full mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
         <div className="grid grid-cols-1 gap-10">
           <div className="grid gap-5">
@@ -31,7 +31,7 @@ function Footer() {
               <p className="font-semibold text-pp">
                 Subscribe for SAT tips and updates
               </p>
-              <section className="w-fit bg-white flex justify-between items-center p-1 rounded-full border border-gray-300">
+              <section className="w-full min-md:w-fit bg-white flex justify-between items-center p-1 rounded-full border border-gray-300">
                 <input
                   className="px-5 outline-none border-none focus-within:outline-0 focus:border-none"
                   placeholder="Enter your mail"
