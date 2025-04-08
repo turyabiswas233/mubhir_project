@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "/icons/logo.svg";
 // contact icons
 import { MdAccountCircle } from "react-icons/md";
@@ -19,10 +19,31 @@ const ScatterLabel = ({ label, color, rotate, className }) => {
 };
 
 function LandingPage() {
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  console.log(windowSize);
+
   return (
     // tempbg-gradient-to-br from-[#1e2841] to-[#434F7F]
-    <div className="bg-[url(/images/landing_earth.png)] bg-cover h-auto w-full px-14 pt-10 lg:px-24 lg:pt-20 rounded-2xl overflow-x-hidden relative mb-10 text-white min-h-fit">
-      <div className="flex items-center w-fit justify-center gap-2 mb-20">
+    <div className="max-lg:bg-[#242F4B] min-lg:bg-[url(/images/landing_earth.png)] bg-cover h-auto w-full p-0 lg:px-20 lg:pt-20 rounded-2xl overflow-x-hidden relative mb-10 text-white min-h-fit overflow-y-hidden">
+      <div className="max-lg:hidden flex items-center w-fit justify-center gap-2 mb-20">
         <img
           src={logo}
           className="bg-white rounded-full"
@@ -31,36 +52,79 @@ function LandingPage() {
         />
         <span className="text-xl">Mubhir</span>
       </div>
-      <div className="grid grid-cols-1 xl:grid-cols-2">
+      <div className="grid grid-cols-1 min-lg:grid-cols-2">
         <div>
-          <header>
-            <h2>
-              <span className="text-4xl xl:text-7xl inline-flex items-center gap-3">
-                Your AI
-                <span>
-                  <img
-                    className="w-[40px] xl:w-[80px]"
-                    src={landingArt}
-                    alt={"art"}
-                    width={"auto"}
-                    height={"auto"}
-                  />
-                </span>{" "}
-                SAT
-              </span>
-            </h2>
-            <h1>
-              <i className="font-extrabold text-6xl lg:text-8xl">Coming Soon</i>
-            </h1>
+          <div className="max-lg:px-14 max-lg:pt-10 max-lg:bg-[url(/images/landing_earth.png)] bg-cover bg-right">
+            <div className="mx-auto min-lg:hidden flex items-center w-fit justify-center gap-2 mb-10">
+              <img
+                src={logo}
+                className="bg-white rounded-full"
+                width={35}
+                height={35}
+              />
+              <span className="text-xl">Mubhir</span>
+            </div>
+            <header>
+              <h2>
+                <span className="text-4xl min-2xl:text-7xl inline-flex items-center gap-3">
+                  Your AI
+                  <span>
+                    <img
+                      className="w-[40px] xl:w-[80px]"
+                      src={landingArt}
+                      alt={"art"}
+                      width={"auto"}
+                      height={"auto"}
+                    />
+                  </span>{" "}
+                  SAT
+                </span>
+              </h2>
+              <h1>
+                <i className="font-extrabold text-6xl min-lg:text-7xl min-2xl:text-8xl">
+                  Coming Soon
+                </i>
+              </h1>
 
-            <p>
-              Can't wait to help you elevate your scores with intelligent <br />{" "}
-              practice, personalized feedback, and strategic prep techniques!
-            </p>
-          </header>
+              <p>
+                Can't wait to help you elevate your scores with intelligent{" "}
+                <br /> practice, personalized feedback, and strategic prep
+                techniques!
+              </p>
+
+              <div className="w-full min-lg:hidden relative bg-right my-4">
+                {/* if on mobile, show the div below */}
+                <img
+                  className="w-full max-w-[1000px]"
+                  src={saudiStd}
+                  width={"100%"}
+                  height={"100%"}
+                />
+                {/* socials */}
+                <ScatterLabel
+                  className={"left-10 bottom-14 w-fit h-fit"}
+                  color={"bg-[#4F46F4]"}
+                  rotate={"-rotate-[24deg]"}
+                  label={"Coming"}
+                />
+                <ScatterLabel
+                  className={"right-10 bottom-1/3 w-fit h-fit"}
+                  color={"bg-[#7E08EE]"}
+                  rotate={"rotate-[24deg]"}
+                  label={"Early"}
+                />
+                <ScatterLabel
+                  className={"left-10 top-20 w-fit h-fit"}
+                  color={"bg-[#0E957F]"}
+                  rotate={"rotate-[24deg]"}
+                  label={"Beta"}
+                />
+              </div>
+            </header>
+          </div>
           <br />
 
-          <div className="grid">
+          <div className="grid max-lg:p-5">
             <h4 className="my-5">Register now to get early access</h4>
             <form
               onSubmit={(e) => {
@@ -115,7 +179,7 @@ function LandingPage() {
                 </section>
               </div>
 
-              <button className="rounded-full p-1 bg-[#BBAAFF] text-black flex items-center my-6">
+              <button className="max-lg:w-full rounded-full p-1 bg-[#BBAAFF] text-black flex items-center justify-between my-6">
                 <span className="px-5 font-medium">Register now</span>
                 <span>
                   <FaArrowRight
@@ -127,7 +191,7 @@ function LandingPage() {
               </button>
             </form>
           </div>
-          <div className="flex items-start pb-20">
+          <div className="flex items-start p-5 lg:px-0 lg:pb-20 flex-col gap-5">
             <div className="items-center flex">
               <MdAccountCircle
                 className="border broder-pp rounded-full bg-white text-pp "
@@ -149,35 +213,35 @@ function LandingPage() {
           </div>
         </div>
 
-        <div>
+        <div className="relative w-full max-lg:hidden">
           <img
-            // className="w-auto absolute bottom-0 left-1/2 aspect-auto z-0"
-            className="absolute w-1/2 right-0 bottom-0 max-w-[1000px]"
+            className="w-full max-w-[1000px] absolute bottom-0"
             src={saudiStd}
+            width={"100%"}
             height={"100%"}
           />
+          {/* socials */}
+          <ScatterLabel
+            className={"min-lg:left-1/3 min-lg:top-14 w-fit h-fit"}
+            color={"bg-[#4F46F4]"}
+            rotate={"-rotate-[24deg]"}
+            label={"Coming"}
+          />
+          <ScatterLabel
+            className={"right-10 bottom-1/3 w-fit h-fit"}
+            color={"bg-[#7E08EE]"}
+            rotate={"rotate-[24deg]"}
+            label={"Early"}
+          />
+          <ScatterLabel
+            className={"left-10 bottom-20 w-fit h-fit"}
+            color={"bg-[#0E957F]"}
+            rotate={"rotate-[24deg]"}
+            label={"Beta"}
+          />
         </div>
-        {/* socials */}
-        <ScatterLabel
-          className={"right-1/4 top-14"}
-          color={"bg-[#4F46F4]"}
-          rotate={"-rotate-[24deg]"}
-          label={"Coming"}
-        />
-        <ScatterLabel
-          className={"right-10 bottom-1/2"}
-          color={"bg-[#7E08EE]"}
-          rotate={"rotate-[24deg]"}
-          label={"Early"}
-        />
-        <ScatterLabel
-          className={"right-1/2 bottom-20 opacity-0 md:opacity-100"}
-          color={"bg-[#0E957F]"}
-          rotate={"rotate-[24deg]"}
-          label={"Beta"}
-        />
       </div>
-      <div className="flex gap-2 items-center absolute bottom-10 right-5">
+      <div className="lg:absolute lg:right-10 p-5 -bottom-5 flex gap-2 mb-10 lg:mb-14">
         <button>
           <FaInstagram
             className="text-pp p-2 bg-white hover:bg-light-pp hover:text-white transition-colors cursor-pointer rounded-full"
