@@ -13,6 +13,7 @@ import SigninPage from "./pages/SigninPage.jsx";
 import SignupPage from "./pages/SignupPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
+import LandingPageRTL from "./pages/rtl/LandingPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,15 @@ const router = createBrowserRouter([
           },
         ],
       },
+      {
+        path: "/rtl",
+        children: [
+          {
+            path: "landing",
+            element: <LandingPageRTL />
+          }
+        ]
+      }
     ],
   },
 ]);
