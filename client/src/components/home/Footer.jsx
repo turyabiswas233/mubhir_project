@@ -9,40 +9,12 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 import { FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa";
 import { FaFacebookF, FaXTwitter } from "react-icons/fa6";
 import { MdOutlineMail } from "react-icons/md";
-import { useEffect, useState } from "react";
 
 function Footer() {
   const { pathname } = useLocation();
 
-  const [deviceInfo, setDeviceInfo] = useState({});
-
-  useEffect(() => {
-    const userAgent = navigator.userAgent;
-    const platform = navigator.platform;
-
-    let os = "Unknown OS";
-    if (/android/i.test(userAgent)) os = "Android";
-    else if (/win/i.test(platform)) os = "Windows";
-    else if (/linux/i.test(platform)) os = "Linux";
-    else if (/mac/i.test(platform)) os = "MacOS";
-
-    let browser = "Unknown Browser";
-    if (/firefox/i.test(userAgent)) browser = "Mozilla Firefox";
-    else if (/chrome|chromium|crios/i.test(userAgent))
-      browser = "Google Chrome/Chromium";
-    else if (
-      /safari/i.test(userAgent) &&
-      !/chrome|chromium|crios/i.test(userAgent)
-    )
-      browser = "Safari";
-    else if (/edge/i.test(userAgent)) browser = "Microsoft Edge";
-
-    setDeviceInfo({ os, browser });
-  }, []);
-
-  console.log(navigator.userAgent, navigator.clipboard);
-
-  if (pathname === "/landing") return <div></div>;
+  if (pathname.includes("/landing") || pathname.includes("/rtl/landing"))
+    return <div></div>;
   else
     return (
       <div className="p-5 min-lg:px-20 min-lg:pt-20 bg-lightgray text-[#344054] rounded-xl ">

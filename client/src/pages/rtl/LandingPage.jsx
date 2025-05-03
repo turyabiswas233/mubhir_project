@@ -25,6 +25,56 @@ const ScatterLabel = ({ label, color, rotate, className }) => {
 };
 
 function LandingPageRTL() {
+  const [load, setLoad] = useState(false);
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const element = e.currentTarget.getElementsByTagName("input");
+    // get firstName, fullName, phone, email from this submit form
+    const firstName = element[0].value;
+    const fullName = element[1].value;
+    const email = element[2].value;
+    const phone = element[3].value;
+    const formData = new FormData();
+
+    formData.append("first_name", firstName);
+    formData.append("full_name", fullName);
+    formData.append("phone", phone);
+    formData.append("email", email);
+
+    formData.forEach((value, key) => {
+      console.log(`${key}: ${value}`);
+    });
+
+    try {
+      setLoad(true);
+      const response = await fetch(`${CONFIG.API}/registrations`, {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+      if (response.status === 201 && data?.status === true) {
+        setMessage(data?.message);
+        setError(false);
+        // reset the form
+        [0, 1, 2, 3].forEach((ele) => {
+          element[ele].value = "";
+        });
+      } else {
+        setMessage("Failed to create an account");
+        setError(true);
+      }
+    } catch (error) {
+      console.error(error);
+      setError(true);
+      setMessage("Failed to create an account");
+    } finally {
+      setLoad(false);
+    }
+  };
+
   return (
     // here the image url is for pc view
     <div className="max-lg:bg-[#242F4B] min-lg:bg-[url(/images/landing_earth_rtl.png)] bg-cover h-auto w-full p-0 lg:px-20 lg:pt-10 rounded-2xl overflow-x-hidden relative mb-10 text-white min-h-fit overflow-y-hidden">
@@ -110,7 +160,7 @@ function LandingPageRTL() {
           <div className="grid max-lg:p-5 text-right">
             <h4 className="my-5">سجل الآن للحصول على الوصول المبكر</h4>
             <form
-            className="landing"
+              className="landing"
               onSubmit={(e) => {
                 e.preventDefault();
                 alert("call submit api");
@@ -118,24 +168,24 @@ function LandingPageRTL() {
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 w-auto lg:w-fit min-lg:ml-auto">
                 <section className="grid gap-2">
-                  <label htmlFor="firstName">اسم العائلة</label>
+                  <label htmlFor="first_name">اسم العائلة</label>
                   <input
                     className="p-3 outline-none border border-white/20 bg-white/1   0 rounded-md focus:border-slate-400 focus-within:border-2 transition-all text-right"
                     required
                     type="text"
-                    name="firstName"
-                    id="firstName"
+                    name="first_name"
+                    id="first_name"
                     placeholder="اسم العائلة"
                   />
                 </section>
                 <section className="grid gap-2">
-                  <label htmlFor="fullName">الاسم الأول</label>
+                  <label htmlFor="full_name">الاسم الأول</label>
                   <input
                     className="p-3 outline-none border border-white/20 bg-white/1   0 rounded-md focus:border-slate-400 focus-within:border-2 transition-all text-right"
                     required
                     type="text"
-                    name="fullName"
-                    id="fullName"
+                    name="full_name"
+                    id="full_name"
                     placeholder="الاسم الأول"
                   />
                 </section>
@@ -166,11 +216,19 @@ function LandingPageRTL() {
               <button className="max-lg:w-full rounded-full p-1 bg-[#BBAAFF] text-black font-medium flex flex-row-reverse items-center justify-between my-6 min-lg:float-right">
                 <span className="px-5 font-medium">سجل الآن</span>
                 <span>
-                  <FaArrowLeft
-                    enableBackground={"true"}
-                    className="text-pp p-2.5 bg-white rounded-full"
-                    size={40}
-                  />
+                  {load ? (
+                    <LuLoader
+                      enableBackground={"true"}
+                      className="text-pp p-2.5 bg-white rounded-full animate-spin"
+                      size={40}
+                    />
+                  ) : (
+                    <FaArrowLeft
+                      enableBackground={"true"}
+                      className="text-pp p-2.5 bg-white rounded-full"
+                      size={40}
+                    />
+                  )}
                 </span>
               </button>
             </form>
@@ -190,7 +248,7 @@ function LandingPageRTL() {
                 size={40}
               />
             </div>
-            <section >
+            <section>
               <p className="font-semibold text-lg">أكثر من 40,000 طالب</p>
               <p className="font-normal">انضم إلينا للوصول إلى مزايانا</p>
             </section>

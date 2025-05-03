@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
-import logo from "/icons/logo.svg";
 // contact icons
 import { MdAccountCircle } from "react-icons/md";
-import saudiStd from "/images/saudi_std.png";
-import landingArt from "/icons/landing_art.svg";
 // social icons
 import { FaArrowRight, FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa";
 import { FaFacebookF, FaXTwitter } from "react-icons/fa6";
+import { LuLoader } from "react-icons/lu";
+// images
+import saudiStd from "/images/saudi_std.png";
+import landingArt from "/icons/landing_art.svg";
+import logo from "/icons/logo.svg";
+
+//api config
+import { CONFIG } from "../api/config";
 
 const ScatterLabel = ({ label, color, rotate, className }) => {
   return (
@@ -17,32 +22,82 @@ const ScatterLabel = ({ label, color, rotate, className }) => {
     </div>
   );
 };
+const NiceStatusMessageBox = ({ message, errorStatus }) => {
+  return (
+    <div>
+      <p className="text-lg font-semibold">
+        {errorStatus ? "Error:" : "Success:"}
+      </p>
+      <p className="text-sm">{message}</p>
+    </div>
+  );
+};
 
 function LandingPage() {
-  const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
+  const [load, setLoad] = useState(false);
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState(false);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const element = e.currentTarget.getElementsByTagName("input");
+    // get firstName, fullName, phone, email from this submit form
+    const firstName = element[0].value;
+    const fullName = element[1].value;
+    const email = element[2].value;
+    const phone = element[3].value;
+    const formData = new FormData();
+
+    formData.append("first_name", firstName);
+    formData.append("full_name", fullName);
+    formData.append("phone", phone);
+    formData.append("email", email);
+
+    formData.forEach((value, key) => {
+      console.log(`${key}: ${value}`);
+    });
+
+    try {
+      setLoad(true);
+      const response = await fetch(`${CONFIG.API}/registrations`, {
+        method: "POST",
+        body: formData,
       });
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-  console.log(windowSize);
+      const data = await response.json();
+      if (response.status === 201 && data?.status === true) {
+        setMessage(data?.message);
+        setError(false);
+        // reset the form
+        [0, 1, 2, 3].forEach((ele) => {
+          element[ele].value = "";
+        });
+      } else {
+        setMessage("Failed to create an account");
+        setError(true);
+      }
+    } catch (error) {
+      console.error(error);
+      setError(true);
+      setMessage("Failed to create an account");
+    } finally {
+      setLoad(false);
+    }
+  };
 
   return (
     // tempbg-gradient-to-br from-[#1e2841] to-[#434F7F]
     <div className="max-lg:bg-[#242F4B] min-lg:bg-[url(/images/landing_earth.png)] bg-cover h-auto w-full p-0 lg:px-20 lg:pt-20 rounded-2xl overflow-x-hidden relative mb-10 text-white min-h-fit overflow-y-hidden">
+      {message && (
+        <div
+          className={`p-5 z-50 fixed top-10 left-1/2 -translate-x-1/2 bg-white w-[50vw] min-w-fit rounded-lg shadow-lg ${
+            error
+              ? "border-red-700 text-red-500"
+              : "border-green-700 text-green-500"
+          } border-2`}
+        >
+          <NiceStatusMessageBox message={message} errorStatus={error} />
+        </div>
+      )}
       <div className="max-lg:hidden flex items-center w-fit justify-center gap-2 mb-20 mx-auto">
         <img
           src={logo}
@@ -87,8 +142,8 @@ function LandingPage() {
               </p>
 
               <p className="my-4 text-base">
-                Can't wait to help you elevate your scores with intelligent practice, personalized feedback, and strategic prep
-                techniques!
+                Can't wait to help you elevate your scores with intelligent
+                practice, personalized feedback, and strategic prep techniques!
               </p>
 
               <div className="w-full min-lg:hidden relative bg-right my-4">
@@ -126,31 +181,32 @@ function LandingPage() {
           <div className="grid max-lg:p-5">
             <h4 className="my-5">Register now to get early access</h4>
             <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert("call submit api");
+              onSubmit={handleSubmit}
+              onChange={(e) => {
+                setMessage("");
+                setError(false);
               }}
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 w-auto lg:w-fit">
                 <section className="grid gap-2">
-                  <label htmlFor="firstName">First Name</label>
+                  <label htmlFor="first_name">First Name</label>
                   <input
                     className="p-3 outline-none border border-white/20 bg-white/4 rounded-md focus:border-slate-400 focus-within:border-2 transition-all"
                     required
                     type="text"
-                    name="firstName"
-                    id="firstName"
+                    name="first_name"
+                    id="first_name"
                     placeholder="First name"
                   />
                 </section>
                 <section className="grid gap-2">
-                  <label htmlFor="fullName">Full Name</label>
+                  <label htmlFor="full_name">Full Name</label>
                   <input
                     className="p-3 outline-none border border-white/20 bg-white/4 rounded-md focus:border-slate-400 focus-within:border-2 transition-all"
                     required
                     type="text"
-                    name="fullName"
-                    id="fullName"
+                    name="full_name"
+                    id="full_name"
                     placeholder="Full Name"
                   />
                 </section>
@@ -178,14 +234,25 @@ function LandingPage() {
                 </section>
               </div>
 
-              <button className="max-lg:w-full rounded-full p-1 bg-[#BBAAFF] text-black flex items-center justify-between my-6">
+              <button
+                className="max-lg:w-full rounded-full p-1 bg-[#BBAAFF] text-black flex items-center justify-between my-6 cursor-pointer disabled:pointer-events-none"
+                disabled={load}
+              >
                 <span className="px-5 font-medium">Register now</span>
                 <span>
-                  <FaArrowRight
-                    enableBackground={"true"}
-                    className="text-pp p-2.5 bg-white rounded-full"
-                    size={40}
-                  />
+                  {load ? (
+                    <LuLoader
+                      enableBackground={"true"}
+                      className="text-pp p-2.5 bg-white rounded-full animate-spin"
+                      size={40}
+                    />
+                  ) : (
+                    <FaArrowRight
+                      enableBackground={"true"}
+                      className="text-pp p-2.5 bg-white rounded-full"
+                      size={40}
+                    />
+                  )}
                 </span>
               </button>
             </form>
