@@ -77,30 +77,78 @@ function LandingPageRTL() {
 
   return (
     // here the image url is for pc view
-    <div className="max-lg:bg-[#242F4B] min-lg:bg-[url(/images/landing_earth_rtl.png)] bg-cover h-auto w-full p-0 lg:px-20 lg:pt-10 rounded-2xl overflow-x-hidden relative mb-10 text-white min-h-fit overflow-y-hidden">
+    <div className="max-lg:bg-[#242F4B] min-lg:bg-[url(/images/landing_earth_rtl.png)] bg-cover h-auto w-full p-0 lg:px-20 lg:pt-20 rounded-2xl overflow-x-hidden relative mb-10 text-white min-h-fit overflow-y-hidden">
       <div className="max-lg:hidden flex items-center w-fit justify-center gap-2 mb-20 mx-auto">
-        <img
-          src={logo}
-          className="bg-white rounded-full"
-          width={35}
-          height={35}
-        />
-        <span className="text-xl">Mubhir</span>
+        <div className="flex items-center gap-2">
+          <img
+            src={logo}
+            className="bg-white rounded-full"
+            width={35}
+            height={35}
+          />
+          <span className="text-xl">Mubhir</span>
+        </div>
+
+        <ul className="flex items-center gap-3 text-sm">
+          <li className="hover:bg-gray-200/20 rounded-md px-2">
+            <a href="/landing">English</a>
+          </li>
+          <li className="hover:bg-gray-200/20 rounded-md px-2">
+            <a href="/rtl/landing">العربية</a>
+          </li>
+        </ul>
       </div>
-      <div className="flex flex-col min-lg:grid-cols-2 min-lg:flex-row-reverse">
+      <div className="grid grid-cols-1 min-lg:grid-cols-2">
+        <div className="relative w-full max-lg:hidden">
+          <img
+            className="w-full max-w-[1000px] absolute bottom-0"
+            src={saudiStd}
+            width={"100%"}
+            height={"100%"}
+          />
+          {/* socials */}
+          <ScatterLabel
+            className={"right-1/6 top-10 w-fit h-fit"}
+            color={"bg-[#4F46F4]"} // violet
+            rotate={"-rotate-[24deg]"}
+            label={"قادمة"}
+          />
+          <ScatterLabel
+            className={"right-10 bottom-1/3 w-fit h-fit"}
+            color={"bg-[#7E08EE]"} // purple
+            rotate={"rotate-[24deg]"}
+            label={"مبكر"}
+          />
+          <ScatterLabel
+            className={"left-10 top-1/4 w-fit h-fit"}
+            color={"bg-[#0E957F]"} // green
+            rotate={"rotate-[24deg]"}
+            label={"بيتا"}
+          />
+        </div>
         <div>
           {/* here the image url is for mobile view */}
           <div className="max-lg:px-4 max-lg:pt-8 max-lg:bg-[url(/images/landing_earth.png)] bg-cover bg-right">
-            <div className="mx-auto min-lg:hidden flex flex-row-reverse items-center w-fit justify-center gap-2 mb-10">
-              <img
-                src={logo}
-                className="bg-white rounded-full"
-                width={35}
-                height={35}
-              />
-              <span className="text-xl">Mubhir</span>
+            <div className="mx-auto min-lg:hidden flex items-center justify-center gap-10 w-full mb-10">
+              <div className="flex items-center gap-2">
+                <img
+                  src={logo}
+                  className="bg-white rounded-full"
+                  width={35}
+                  height={35}
+                />
+                <span className="text-xl">Mubhir</span>
+              </div>
+              <ul className="flex items-center gap-3 text-sm">
+                <li className="hover:bg-gray-200/20 rounded-md px-2">
+                  <a href="/landing">English</a>
+                </li>
+                <li className="hover:bg-gray-200/20 rounded-md px-2">
+                  <a href="/rtl/landing">العربية</a>
+                </li>
+              </ul>
             </div>
-            <header className="h-full max-lg:min-h-[80vh] relative">
+            <header>
               <p className="text-right">
                 <span className="text-4xl min-2xl:text-7xl inline-flex items-center gap-3">
                   الذكي
@@ -125,10 +173,10 @@ function LandingPageRTL() {
                 وتعليقات شخصية، وتقنيات تحضير استراتيجية!
               </p>
 
-              <div className="w-full absolute bottom-0 min-lg:hidden">
+              <div className="w-full min-lg:hidden relative bg-right my-4">
                 {/* if on mobile, show the div below */}
                 <img
-                  className="w-full max-w-[1000px] "
+                  className="w-full max-w-[1000px]"
                   src={saudiStd}
                   width={"100%"}
                   height={"100%"}
@@ -253,34 +301,6 @@ function LandingPageRTL() {
               <p className="font-normal">انضم إلينا للوصول إلى مزايانا</p>
             </section>
           </div>
-        </div>
-
-        <div className="absolute w-auto left-0 bottom-0 max-lg:hidden pointer-events-none">
-          <img
-            className="w-auto h-full"
-            src={saudiStd}
-            width={"100%"}
-            height={"100%"}
-          />
-          {/* socials */}
-          <ScatterLabel
-            className={"right-1/6 top-10 w-fit h-fit"}
-            color={"bg-[#4F46F4]"} // violet
-            rotate={"-rotate-[24deg]"}
-            label={"قادمة"}
-          />
-          <ScatterLabel
-            className={"right-10 bottom-1/3 w-fit h-fit"}
-            color={"bg-[#7E08EE]"} // purple
-            rotate={"rotate-[24deg]"}
-            label={"مبكر"}
-          />
-          <ScatterLabel
-            className={"left-10 top-1/4 w-fit h-fit"}
-            color={"bg-[#0E957F]"} // green
-            rotate={"rotate-[24deg]"}
-            label={"بيتا"}
-          />
         </div>
       </div>
       <div className="max-lg:float-right float-left min-lg:absolute bottom-0 left-5 px-4 pb-10 space-x-2">

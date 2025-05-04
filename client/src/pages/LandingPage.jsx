@@ -85,7 +85,6 @@ function LandingPage() {
   };
 
   return (
-    // tempbg-gradient-to-br from-[#1e2841] to-[#434F7F]
     <div className="max-lg:bg-[#242F4B] min-lg:bg-[url(/images/landing_earth.png)] bg-cover h-auto w-full p-0 lg:px-20 lg:pt-20 rounded-2xl overflow-x-hidden relative mb-10 text-white min-h-fit overflow-y-hidden">
       {message && (
         <div
@@ -99,25 +98,47 @@ function LandingPage() {
         </div>
       )}
       <div className="max-lg:hidden flex items-center w-fit justify-center gap-2 mb-20 mx-auto">
-        <img
-          src={logo}
-          className="bg-white rounded-full"
-          width={35}
-          height={35}
-        />
-        <span className="text-xl">Mubhir</span>
+        <div className="flex items-center gap-2">
+          <img
+            src={logo}
+            className="bg-white rounded-full"
+            width={35}
+            height={35}
+          />
+          <span className="text-xl">Mubhir</span>
+        </div>
+
+        <ul className="flex items-center gap-3 text-sm">
+          <li className="hover:bg-gray-200/20 rounded-md px-2">
+            <a href="/landing">English</a>
+          </li>
+          <li className="hover:bg-gray-200/20 rounded-md px-2">
+            <a href="/rtl/landing">العربية</a>
+          </li>
+        </ul>
       </div>
       <div className="grid grid-cols-1 min-lg:grid-cols-2">
         <div>
           <div className="max-lg:px-4 max-lg:pt-8 max-lg:bg-[url(/images/landing_earth.png)] bg-cover bg-right">
-            <div className="mx-auto min-lg:hidden flex items-center w-fit justify-center gap-2 mb-10">
-              <img
-                src={logo}
-                className="bg-white rounded-full"
-                width={35}
-                height={35}
-              />
-              <span className="text-xl">Mubhir</span>
+            <div className="mx-auto min-lg:hidden flex items-center justify-center gap-10 w-full mb-10">
+              <div className="flex items-center gap-2">
+                <img
+                  src={logo}
+                  className="bg-white rounded-full"
+                  width={35}
+                  height={35}
+                />
+                <span className="text-xl">Mubhir</span>
+              </div>
+
+              <ul className="flex items-center gap-3 text-sm">
+                <li className="hover:bg-gray-200/20 rounded-md px-2">
+                  <a href="/landing">English</a>
+                </li>
+                <li className="hover:bg-gray-200/20 rounded-md px-2">
+                  <a href="/rtl/landing">العربية</a>
+                </li>
+              </ul>
             </div>
             <header>
               <p>
