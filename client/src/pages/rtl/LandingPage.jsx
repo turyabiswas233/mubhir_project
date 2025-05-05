@@ -307,35 +307,35 @@ function LandingPageRTL() {
         <button>
           <FaInstagram
             className="text-pp p-2 bg-white hover:bg-light-pp hover:text-white transition-colors cursor-pointer rounded-full"
-            enableBackground={true}
+            enableBackground={"true"}
             size={32}
           />
         </button>
         <button>
           <FaTiktok
             className="text-pp p-2 bg-white hover:bg-light-pp hover:text-white transition-colors cursor-pointer rounded-full"
-            enableBackground={true}
+            enableBackground={"true"}
             size={32}
           />
         </button>
         <button>
           <FaYoutube
             className="text-pp p-2 bg-white hover:bg-light-pp hover:text-white transition-colors cursor-pointer rounded-full"
-            enableBackground={true}
+            enableBackground={"true"}
             size={32}
           />
         </button>
         <button>
           <FaXTwitter
             className="text-pp p-2 bg-white hover:bg-light-pp hover:text-white transition-colors cursor-pointer rounded-full"
-            enableBackground={true}
+            enableBackground={"true"}
             size={32}
           />
         </button>
         <button>
           <FaFacebookF
             className="text-pp p-2 bg-white hover:bg-light-pp hover:text-white transition-colors cursor-pointer rounded-full"
-            enableBackground={true}
+            enableBackground={"true"}
             size={32}
           />
         </button>

@@ -1,3 +1,3 @@
 export const CONFIG = {
-    API: "https://sat.mubhir.ai/api"
-}
+  API: "https://sat.mubhir.ai/api",
+};

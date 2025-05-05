@@ -14,6 +14,7 @@ import SignupPage from "./pages/SignupPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
 import LandingPageRTL from "./pages/rtl/LandingPage.jsx";
+import StudentList from "./pages/StudentList.jsx";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
         element: <LandingPage />,
       },
       {
+        path: "/registered-students",
+        element: <StudentList />,
+      },
+      {
         path: "/contact",
         element: <ContactPage />,
       },
@@ -75,10 +80,10 @@ const router = createBrowserRouter([
         children: [
           {
             path: "landing",
-            element: <LandingPageRTL />
-          }
-        ]
-      }
+            element: <LandingPageRTL />,
+          },
+        ],
+      },
     ],
   },
 ]);

@@ -38,7 +38,7 @@ function About() {
                 <span className="px-5 font-medium">Get started</span>
                 <span>
                   <FaArrowRight
-                    enableBackground={true}
+                    enableBackground={"true"}
                     className="text-white p-2.5 bg-pp rounded-full"
                     size={40}
                   />
@@ -87,35 +87,35 @@ function About() {
           <button>
             <FaInstagram
               className="text-pp p-2 bg-white hover:bg-light-pp hover:text-white transition-colors cursor-pointer rounded-full"
-              enableBackground={true}
+              enableBackground={"true"}
               size={32}
             />
           </button>
           <button>
             <FaTiktok
               className="text-pp p-2 bg-white hover:bg-light-pp hover:text-white transition-colors cursor-pointer rounded-full"
-              enableBackground={true}
+              enableBackground={"true"}
               size={32}
             />
           </button>
           <button>
             <FaYoutube
               className="text-pp p-2 bg-white hover:bg-light-pp hover:text-white transition-colors cursor-pointer rounded-full"
-              enableBackground={true}
+              enableBackground={"true"}
               size={32}
             />
           </button>
           <button>
             <FaXTwitter
               className="text-pp p-2 bg-white hover:bg-light-pp hover:text-white transition-colors cursor-pointer rounded-full"
-              enableBackground={true}
+              enableBackground={"true"}
               size={32}
             />
           </button>
           <button>
             <FaFacebookF
               className="text-pp p-2 bg-white hover:bg-light-pp hover:text-white transition-colors cursor-pointer rounded-full"
-              enableBackground={true}
+              enableBackground={"true"}
               size={32}
             />
           </button>
@@ -183,7 +183,7 @@ function About() {
             <span className="px-5 text-lg font-medium">Invite now</span>
             <span>
               <FaArrowRight
-                enableBackground={true}
+                enableBackground={"true"}
                 className="text-pp p-2.5 bg-white rounded-full"
                 size={40}
               />
@@ -203,7 +203,7 @@ const BoxCard = ({ title, desc }) => {
       <div className="mb-14">
         <HiOutlineBookOpen
           className="text-black bg-white rounded-full p-2"
-          enableBackground={true}
+          enableBackground={"true"}
           size={32}
         />
       </div>

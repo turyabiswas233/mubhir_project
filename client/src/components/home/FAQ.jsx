@@ -55,7 +55,7 @@ function FAQ() {
           <span className="px-5 text-lg font-medium">Contact Us</span>
           <span>
             <FaArrowRight
-              enableBackground={true}
+              enableBackground={"true"}
               className="text-pp p-2.5 bg-white rounded-full"
               size={40}
             />
@@ -77,7 +77,7 @@ const FaqCard = ({ question, answer }) => {
           <span className={open ? "text-pp" : "text-black"}>{question}</span>
           <button className="cursor-pointer outline-0 focus-within:outline-none" onClick={handleToggle}>
             <FaChevronCircleUp
-              enableBackground={true}
+              enableBackground={"true"}
               className={`rounded-full ${open ? 'rotate-180 bg-white text-pp': 'rotate-0 bg-pp text-white'} transition-all`}
               size={32}
             />

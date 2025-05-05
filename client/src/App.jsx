@@ -7,7 +7,7 @@ import Footer from "./components/home/Footer";
 function App() {
   return (
     <div className="bg-white p-2">
-      <div className="px-3 py-1">
+      <div className="py-1">
         <Outlet />
       </div>
       <Footer />
